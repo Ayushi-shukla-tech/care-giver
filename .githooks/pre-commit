@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "gitleaks is not installed — install it with: brew install gitleaks"
+  echo "Skipping secret scan. Install gitleaks to enforce this check."
+  exit 0
+fi
+
+gitleaks protect --staged --config "$(git rev-parse --show-toplevel)/.gitleaks.toml" --redact

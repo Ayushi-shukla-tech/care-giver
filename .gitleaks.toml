@@ -1,0 +1,10 @@
+title = "CareGiver gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Files that legitimately contain example/placeholder values"
+paths = [
+  '''\.env\.example$''',
+]
